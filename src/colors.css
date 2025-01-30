@@ -5,7 +5,8 @@ body {
   font-weight: 600;
   font-style: normal;
   max-width: 1600px;
-  margin: 10 auto;
+  margin: 0 auto;
+  padding: 10px;
 }
 
 h1 {
@@ -21,7 +22,7 @@ h1 {
   gap: 2rem;
 }
 #by-colors {
-  justify-content: space-around;
+  /* justify-content: space-around; */
   margin-bottom: 2rem;
 }
 
