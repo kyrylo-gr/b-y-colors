@@ -5,7 +5,7 @@
     <meta
       name="viewport"
       content="width=device-width, initial-scale=1.0" />
-    <title>Color Presentation</title>
+    <title>B/Y Colors</title>
 
     <link
       rel="preconnect"
@@ -79,90 +79,21 @@
         </div>
       </div>
     </section>
-    <script>
-      const colors = [
-        {
-          family: 'RED',
-          shades: [
-            { hex: '#E84A33', rgb: '(232,74,51)' },
-            { hex: '#A4220F', rgb: '(164,34,15)' },
-            { hex: '#F48D7E', rgb: '(244,141,126)' }
-          ]
-        },
-        {
-          family: 'PURPLE',
-          shades: [
-            { hex: '#A957BE', rgb: '(169,87,190)' },
-            { hex: '#7C2377', rgb: '(124,35,119)' },
-            { hex: '#E093F4', rgb: '(224,147,244)' }
-          ]
-        },
-        {
-          family: 'VIOLET',
-          shades: [
-            { hex: '#4E326C', rgb: '(78,50,108)' },
-            { hex: '#3C124C', rgb: '(60,18,76)' },
-            { hex: '#9C7DBE', rgb: '(156,125,190)' }
-          ]
-        },
-        {
-          family: 'GREEN',
-          shades: [
-            { hex: '#60AE60', rgb: '(96,174,96)' },
-            { hex: '#2E6E2E', rgb: '(46,110,46)' },
-            { hex: '#95D395', rgb: '(149,211,149)' }
-          ]
-        }
-      ];
-
-      const container = document.createElement('div');
-      container.classList.add('color-container');
-
-      colors.forEach((color) => {
-        const colorBlock = document.createElement('div');
-        colorBlock.classList.add('color-block');
-
-        color.shades.forEach((shade, index) => {
-          const colorSwatch = document.createElement('div');
-          colorSwatch.classList.add('color-swatch');
-          colorSwatch.setAttribute('data-hex', shade.hex);
-          colorSwatch.setAttribute('data-rgb', shade.rgb);
-          colorSwatch.style.backgroundColor = shade.hex;
-
-          const span = document.createElement('span');
-          span.innerHTML = `${shade.hex}<br />${shade.rgb}`;
-          colorSwatch.appendChild(span);
-
-          if (index === 0) {
-            colorBlock.appendChild(colorSwatch);
-          } else {
-            const shadesRow =
-              colorBlock.querySelector('.shades-row') ||
-              document.createElement('div');
-            shadesRow.classList.add('shades-row');
-            shadesRow.appendChild(colorSwatch);
-            if (!colorBlock.querySelector('.shades-row')) {
-              colorBlock.appendChild(shadesRow);
-            }
-          }
-        });
-
-        container.appendChild(colorBlock);
-      });
-
-      document.body.insertBefore(container, document.querySelector('script'));
-    </script>
 
     <script src="./src/colors.js"></script>
     <footer>
       <p>
-        Designed & developed by
+        Suggestions are welcome at
+        <a href="https://github.com/kyrylo-gr/web_colors/issues">here</a>
+      </p>
+      <p>
+        Designed &amp; developed by
         <a
           href="https://www.instagram.com/dariara.illustration"
           target="_blank"
           >dariara</a
         >
-        &
+        &amp;
         <a
           href="https://kyrylo.gr"
           target="_blank"
