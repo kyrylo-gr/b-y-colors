@@ -17,11 +17,36 @@ const colors = [
     ]
   },
   {
+    family: 'ORANGE',
+    shades: [
+      { hex: '#FF8029', rgb: '(255,128,41)' },
+      { hex: '#DC5900', rgb: '(220,89,0)' },
+      { hex: '#FFC29D', rgb: '(255,194,157)' }
+    ]
+  },
+  {
     family: 'RED',
     shades: [
       { hex: '#E84A33', rgb: '(232,74,51)' },
       { hex: '#A4220F', rgb: '(164,34,15)' },
       { hex: '#F48D7E', rgb: '(244,141,126)' }
+    ]
+  },
+  {
+    family: 'BROWN',
+    shades: [
+      { hex: '#84451E', rgb: '(132,69,30)' },
+      { hex: '#59280A', rgb: '(89,40,10)' },
+      { hex: '#A56034', rgb: '(165,96,52)' }
+    ]
+  },
+
+  {
+    family: 'PINK',
+    shades: [
+      { hex: '#E961B9', rgb: '(233,97,185)' },
+      { hex: '#A91374', rgb: '(169,19,116)' },
+      { hex: '#F6B0DD', rgb: '(246,176,221)' }
     ]
   },
   {
@@ -40,30 +65,7 @@ const colors = [
       { hex: '#9C7DBE', rgb: '(156,125,190)' }
     ]
   },
-  {
-    family: 'GREEN',
-    shades: [
-      { hex: '#60AE60', rgb: '(96,174,96)' },
-      { hex: '#2E6E2E', rgb: '(46,110,46)' },
-      { hex: '#95D395', rgb: '(149,211,149)' }
-    ]
-  },
-  {
-    family: 'PINK',
-    shades: [
-      { hex: '#E961B9', rgb: '(233,97,185)' },
-      { hex: '#A91374', rgb: '(169,19,116)' },
-      { hex: '#F6B0DD', rgb: '(246,176,221)' }
-    ]
-  },
-  {
-    family: 'ORANGE',
-    shades: [
-      { hex: '#FF8029', rgb: '(255,128,41)' },
-      { hex: '#DC5900', rgb: '(220,89,0)' },
-      { hex: '#FFC29D', rgb: '(255,194,157)' }
-    ]
-  },
+
   {
     family: 'CYAN',
     shades: [
@@ -73,11 +75,11 @@ const colors = [
     ]
   },
   {
-    family: 'BROWN',
+    family: 'GREEN',
     shades: [
-      { hex: '#84451E', rgb: '(132,69,30)' },
-      { hex: '#59280A', rgb: '(89,40,10)' },
-      { hex: '#A56034', rgb: '(165,96,52)' }
+      { hex: '#60AE60', rgb: '(96,174,96)' },
+      { hex: '#2E6E2E', rgb: '(46,110,46)' },
+      { hex: '#95D395', rgb: '(149,211,149)' }
     ]
   },
   {
