@@ -1,5 +1,22 @@
 const colors = [
   {
+    family: 'BLUE',
+    shades: [
+      { hex: '#0050A0', rgb: '(0,80,160)' },
+      { hex: '#092B61', rgb: '(9,43,97)' },
+      { hex: '#3A8FE4', rgb: '(58,143,228)' }
+    ]
+  },
+  {
+    family: 'YELLOW',
+    shades: [
+      { hex: '#E5B700', rgb: '(229,183,0)' },
+      //   { hex: '#FFCC00', rgb: '(255,204,0)' },
+      { hex: '#CE9A0E', rgb: '(206,154,14)' },
+      { hex: '#FFE066', rgb: '(255,224,102)' }
+    ]
+  },
+  {
     family: 'RED',
     shades: [
       { hex: '#E84A33', rgb: '(232,74,51)' },
@@ -52,7 +69,7 @@ const colors = [
     shades: [
       { hex: '#3DCFCF', rgb: '(61,207,207)' },
       { hex: '#1E6767', rgb: '(30,103,103)' },
-      { hex: '#9ee7e7', rgb: '(158,231,231)' }
+      { hex: '#9EE7E7', rgb: '(158,231,231)' }
     ]
   },
   {
@@ -71,27 +88,12 @@ const colors = [
       { hex: '#A2A2A2', rgb: '(162,162,162)' }
     ]
   }
-  //   PINK = "#E961B9"
-  // PINK_DARK = "#A91374"
-  // PINK_LIGHT = "#F6B0DD"
-  // ORANGE = "#FF8029"
-  // ORANGE_LIGHT = "#FFC29D"
-
-  // CYAN = "#3DCFCF"
-
-  // BROWN = "#84451E"
-  // BROWN_DARK = "#59280A"
-  // BROWN_LIGHT = "#A56034"
-
-  // GREY = "#808080"
-  // GREY_DARK = "#202020"
-  // GREY_LIGHT = "#A2A2A2"
 ];
 
-const container = document.createElement('div');
-container.classList.add('color-container');
+const topContainer = document.getElementById('by-colors');
+const container = document.getElementById('all-colors');
 
-colors.forEach((color) => {
+colors.forEach((color, index) => {
   const colorBlock = document.createElement('div');
   colorBlock.classList.add('color-block');
 
@@ -120,10 +122,12 @@ colors.forEach((color) => {
     }
   });
 
-  container.appendChild(colorBlock);
+  if (index < 2) {
+    topContainer.appendChild(colorBlock);
+  } else {
+    container.appendChild(colorBlock);
+  }
 });
-
-document.body.insertBefore(container, document.querySelector('script'));
 
 document.addEventListener('DOMContentLoaded', () => {
   const swatches = document.querySelectorAll('.color-swatch');
