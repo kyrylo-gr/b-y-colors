@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "allowJs": true, // Allow TypeScript to process JavaScript files
+    "checkJs": true, // Enable TypeScript type checking in `.js` files
+    "strict": false, // Enable all strict type-checking options
+    "noImplicitAny": true, // Require explicit types
+    "strictNullChecks": true, // Ensure null and undefined are handled
+    "strictFunctionTypes": true,
+    "skipLibCheck": true,
+    "strictPropertyInitialization": true,
+    "noEmit": true, // Don't output compiled files
+    "lib": ["ESNext", "dom"] // Use ES2015 library
+  },
+  "include": ["web/src/**/*"]
+}
