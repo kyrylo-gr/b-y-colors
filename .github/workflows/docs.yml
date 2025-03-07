@@ -24,6 +24,10 @@ jobs:
           restore-keys: |
             mkdocs-
       - run: pip install -r requirements-docs.txt
+      - name: Install package
+        run: |
+          cd python
+          pip install -e .
       - name: Build and deploy if push
         run: |
           if [ "${{ github.event_name }}" == "push" ]; then
