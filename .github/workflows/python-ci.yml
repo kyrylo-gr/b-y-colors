@@ -1,7 +1,7 @@
 # This workflow will upload a Python Package using Twine when a release is created
 # For more information see: https://help.github.com/en/actions/language-and-framework-guides/using-python-with-github-actions#publishing-to-package-registries
 
-name: UploadPyPi
+name: CI
 
 env:
   config_path: python/bycolors/__config__.py
@@ -56,8 +56,9 @@ jobs:
         run: |
           git fetch origin
           echo "Config file:"
-          git show origin/main:$config_path
-          previous_version=$(git show origin/main:$config_path | grep '__version__' | cut -d'"' -f2)
+          git checkout HEAD~1
+          git show HEAD~1:$config_path
+          previous_version=$(git show HEAD~1:$config_path | grep '__version__' | cut -d'"' -f2)
           echo "Previous version: $previous_version"
           echo "previous_version=$previous_version" >> "$GITHUB_OUTPUT"
 
