@@ -1,3 +1,7 @@
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   /* font-family: Poppins, sans-serif; */
   font-family: 'Nunito', serif;
@@ -144,13 +148,17 @@ a {
   text-decoration: underline;
 }
 
-#blindness-section {
+.buttons-row {
   display: flex;
   justify-content: center;
   gap: 10px;
   margin: 20px 0;
 }
-.blindness-button {
+.button-like {
+  padding: 10px 15px;
+  font-size: 1rem;
+}
+.button {
   padding: 10px 15px;
   border: 2px solid #888;
   background-color: #fff;
@@ -159,11 +167,14 @@ a {
   border-radius: 0.3em;
   transition: 0.3s;
 }
-.blindness-button.selected {
+a {
+  text-decoration: none;
+}
+.button.selected {
   background-color: #000;
   color: white;
 }
-.blindness-button:hover {
+.button:hover {
   background-color: #000;
   color: white;
 }
