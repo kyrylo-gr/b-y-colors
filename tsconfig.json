@@ -11,5 +11,5 @@
     "noEmit": true, // Don't output compiled files
     "lib": ["ESNext", "dom"] // Use ES2015 library
   },
-  "include": ["docs/src/**/*"]
+  "include": ["docs/assets/**/*"]
 }

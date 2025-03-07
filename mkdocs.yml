@@ -22,7 +22,7 @@ theme:
     - search.suggest
     - search.highlight
 extra_css:
-  - stylesheets/extra.css
+  - assets/mkdocs.css
 
 plugins:
   - search
@@ -58,4 +58,7 @@ plugins:
             unwrap_annotated: true
       watch: python/bycolors/
 
-docs_dir: docs
+nav:
+  - ColorClass: python/
+  - All colors: /index.html
+  - Cmaps: python/cmap/
