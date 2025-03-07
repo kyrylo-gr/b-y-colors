@@ -52,29 +52,36 @@ jobs:
           current_version=$(grep '__version__' $config_path | cut -d'"' -f2)
           echo "Current version: $current_version"
           echo "current_version=$current_version" >> "$GITHUB_OUTPUT"
-
-      - name: Get previous version
-        id: get_previous_version
+      - name: Get version from pypi
+        id: get_version_from_pypi
         run: |
-          git fetch origin
-          echo "Config file:"
-          git checkout HEAD~1
-          git show HEAD~1:$config_path
-          previous_version=$(git show HEAD~1:$config_path | grep '__version__' | cut -d'"' -f2)
-          echo "Previous version: $previous_version"
-          echo "previous_version=$previous_version" >> "$GITHUB_OUTPUT"
+          pip install bycolors
+          version=$(python -c "import bycolors; print(bycolors.__version__)")
+          echo "Version from pypi: $version"
+          echo "pypi_version=$version" >> "$GITHUB_OUTPUT"
+
+      # - name: Get previous version
+      #   id: get_previous_version
+      #   run: |
+      #     git fetch origin
+      #     echo "Config file:"
+      #     git checkout HEAD~1
+      #     git show HEAD~1:$config_path
+      #     previous_version=$(git show HEAD~1:$config_path | grep '__version__' | cut -d'"' -f2)
+      #     echo "Previous version: $previous_version"
+      #     echo "previous_version=$previous_version" >> "$GITHUB_OUTPUT"
 
       - name: Compare versions
         id: compare
         run: |
           echo "Current version: ${{ steps.get_current_version.outputs.current_version }}"
-          echo "Previous version: ${{ steps.get_previous_version.outputs.previous_version }}"
+          echo "Pypi version: ${{ steps.get_version_from_pypi.outputs.pypi_version }}"
 
-          if [ "${{ steps.get_current_version.outputs.current_version }}" = "${{ steps.get_previous_version.outputs.previous_version }}" ]; then
-              echo "Version is the same as on the previous release"
+          if [ "${{ steps.get_current_version.outputs.current_version }}" = "${{ steps.get_version_from_pypi.outputs.pypi_version }}" ]; then
+              echo "Version is the same as on the pypi"
               echo "publish=false" >> "$GITHUB_OUTPUT"
           else
-            echo "Ok: Version is different from the previous version"
+            echo "Ok: Version is different from the pypi version"
             echo "publish=true" >> "$GITHUB_OUTPUT"
           fi
 
