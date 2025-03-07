@@ -1,4 +1,45 @@
+from typing import TYPE_CHECKING
+
 from .color_class import ColorClass
+from . import cmap
+
+
+if TYPE_CHECKING:
+    from matplotlib.colors import LinearSegmentedColormap
+
+
+class Gradient:
+    blue_yellow: "LinearSegmentedColormap"
+    white_blue: "LinearSegmentedColormap"
+    white_yellow: "LinearSegmentedColormap"
+
+    def _blue_yellow(self):
+        return Palette.cmap(Palette.blue, Palette.white, Palette.yellow)
+
+    def _white_blue(self):
+        return Palette.cmap(Palette.white, Palette.blue)
+
+    def __getattr__(self, item: str) -> "LinearSegmentedColormap":
+        # Handle direct method calls
+        if item.startswith("_"):
+            method = super().__getattr__(item)  # pylint: disable=E1101
+            return method()
+
+        # Handle predefined gradients
+        private_name = f"_{item}"
+        if hasattr(self, private_name):
+            method = getattr(self, private_name)
+            return method()
+
+        # Handle dynamic color combinations
+        color_names = item.split("_")
+        try:
+            colors = [getattr(Palette, color_name) for color_name in color_names]
+            return Palette.cmap(*colors)
+        except AttributeError as e:
+            raise AttributeError(
+                f"'{self.__class__.__name__}' object has no attribute '{item}'"
+            ) from e
 
 
 class Palette:
@@ -16,3 +57,9 @@ class Palette:
     black = ColorClass({"main": "#000000"})
     white = ColorClass({"main": "#FFFFFF"})
     transparent = ColorClass({"main": (1, 1, 1, 0)})
+
+    @staticmethod
+    def cmap(*colors):
+        return cmap.get_cmap(*colors)
+
+    gradient = Gradient()
