@@ -1,7 +1,7 @@
 from .color_class import ColorClass
 
 
-class BYPalette:
+class Palette:
     yellow = ColorClass({"main": "#E5B700", "dark": "#CE9A0E", "light": "#FFE066"})
     blue = ColorClass({"main": "#0050A0", "dark": "#092B61", "light": "#3A8FE4"})
     red = ColorClass({"main": "#E84A33", "dark": "#A4220F", "light": "#F48D7E"})
