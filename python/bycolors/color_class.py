@@ -174,8 +174,9 @@ class ColorClass(tuple):
     variant access (dark/light).
 
     Args:
-        palette (_PALETTE_TYPE | str | None): The color value, can be a hex string, RGB/RGBA tuple,
-            or a palette dictionary with 'main', 'dark', and 'light' variants.
+        palette (_PALETTE_TYPE | str | tuple[int, int, int] | tuple[int, int, int, int] | None):
+            The color value, can be a hex string, RGB/RGBA tuple, or a palette dictionary
+            with 'main', 'dark', and 'light' variants.
         background_color (_RGB_TYPE | None): The background color used for alpha compositing.
             Defaults to white (1, 1, 1).
 
@@ -192,7 +193,7 @@ class ColorClass(tuple):
 
     def __init__(
         self,
-        palette: _PALETTE_TYPE | str | None = None,
+        palette: _POSSIBLE_COLOR_INIT_TYPES | None = None,
         background_color: _RGB_TYPE | None = None,
     ):
         self.palette = convert_to_palette(palette)
@@ -247,7 +248,7 @@ class ColorClass(tuple):
         Returns:
             str: Color in hex format (e.g., "#FF0000" for red).
         """
-        return rgb_to_hex(self.main_color)
+        return rgb_to_hex(self.rgb)
 
     @property
     def rgba(self):

@@ -1,6 +1,6 @@
 from typing import TYPE_CHECKING
 
-from .color_class import ColorClass
+from .color_class import ColorClass, _POSSIBLE_COLOR_INIT_TYPES
 from . import cmap
 
 
@@ -12,6 +12,7 @@ class Gradient:
     blue_yellow: "LinearSegmentedColormap"
     white_blue: "LinearSegmentedColormap"
     white_yellow: "LinearSegmentedColormap"
+    transparent_white: "LinearSegmentedColormap"
 
     def _blue_yellow(self):
         return Palette.cmap(Palette.blue, Palette.white, Palette.yellow)
@@ -63,3 +64,7 @@ class Palette:
         return cmap.get_cmap(*colors)
 
     gradient = Gradient()
+
+    @staticmethod
+    def color(color: _POSSIBLE_COLOR_INIT_TYPES) -> ColorClass:
+        return ColorClass(color)
