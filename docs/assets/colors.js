@@ -167,7 +167,10 @@ function updateColors() {
       );
 
       const span = document.createElement('span');
-      span.innerHTML = `${shade.hex}<br />${shade.rgb}`;
+      const family_name =
+        color.family.charAt(0).toUpperCase() +
+        color.family.slice(1).toLowerCase();
+      span.innerHTML = `${family_name}:<br />${shade.hex}<br />${shade.rgb}`;
       colorSwatch.appendChild(span);
 
       if (index === 0) {
