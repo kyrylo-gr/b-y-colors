@@ -1,4 +1,3 @@
-from curses import noecho
 from typing import TYPE_CHECKING
 
 from .color_class import ColorClass, _POSSIBLE_COLOR_INIT_TYPES
